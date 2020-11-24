@@ -1,6 +1,6 @@
 ###
 #title: Check the frequency of coin flip changes from heads and tails
-#       Replicate the sampling 10,000 times.
+#       Replicate by 10,000 times.
 #       Find how many outliers in the left and right of the true value
 #       with 95% confidence interval
 #author: "Mousaidna Rosario"
@@ -23,13 +23,14 @@ cnt <- 0
 flip.Cnt <- function(h){ 
   while(i <= k)
   {
-    if (f!=h[i])
+    if (f!=h[i]) # f-1,h=1
     {
       # get the value of f for next comparison
-      f = h[i]
-      #count changes
+      f = h[i] 
+      #c ount changes
       cnt = 1 + cnt
     }
+    # counter
     i = 1 + i
   }
   return(cnt)
@@ -39,22 +40,23 @@ flip.Cnt <- function(h){
 nf <- flipCnt(fl)
 nf # no of flip changes in 50 flips
 
-# Simulate in 10,000 times and get the outliers from left and right of the histogram
+# Simulate this 10,000 times and get the outliers from left and right of the histogram
 
 NoOfFluctuation <- replicate(10000, {
   sampD <- sample(0:1,size=50, replace = TRUE)
   #put the sample in table form for histogram
-  x <- table(sampD)
+  flip.Cnt(sampD)
 }
 )
 
-hist(NoOfFluctuation, col = "red",ylim = c(0, 5000), 
-     xlab = "Number of fluctuation", 
-     main = paste("Histogram of 10000 Coin Flip"))
+hist(NoOfFluctuation, col = "red",ylim = c(0, 2500), 
+     xlab = "Flip Coin Change Frequency", ylab="Frequency" ,
+     main = paste("Histogram of 10000 Coin Flip changes frequency"))
 
 abline(v=quantile(NoOfFluctuation, c(0.025, 0.975)), lwd=2, col='blue', lty=2)
+abline(v=mean(NoOfFluctuation), lwd=2, col='yellow', lty=2)
 
-quantile(NoOfFluctuation, c(0.025, 0.975)) # 95 confidence interval
+quantile(NoOfFluctuation, c(0.025, 0.975)) # 95% confidence interval
 
-length(NoOfFluctuation[NoOfFluctuation < 19]) # outliers count in the left, < 0.05 
+length(NoOfFluctuation[NoOfFluctuation < 18]) # outliers count in the left, < 0.05 
 length(NoOfFluctuation[NoOfFluctuation > 32]) # outliers count in the right, > 0.95
