@@ -1,6 +1,8 @@
 ###
 #title: Check the frequency of coin flip changes from heads and tails
 #       Replicate 10,000 times.
+#       Find how many outliers in the left and right of the true value
+#       with 95% confidence interval
 #author: "Mousaidna Rosario"
 ###
 
@@ -12,7 +14,7 @@ fl <- sample(0:1,size=50, replace = TRUE)
 
 fl
 #initialize value for the loop
-k <- length(fl) # get value of flip[n]
+k <- length(fl) # get value of fl[n]
 i <- 1 #var to get the current status when flipping
 f <- 0 #initialize count status change
 cnt <- 0
