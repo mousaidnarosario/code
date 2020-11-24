@@ -4,7 +4,7 @@
 #date: "7/25/2020"
 ---
   
-#This file shows relationship between different Game Of Thrones characters. 
+#This file shows relationship between different Game Of Thrones characters. The dataset comes from Kaggle.
 
 #Reading data from dataset file:
   
