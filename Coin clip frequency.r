@@ -1,6 +1,6 @@
 ###
 #title: Check the frequency of coin flip changes from heads and tails
-#       Replicate 10,000 times.
+#       Replicate the sampling 10,000 times.
 #       Find how many outliers in the left and right of the true value
 #       with 95% confidence interval
 #author: "Mousaidna Rosario"
