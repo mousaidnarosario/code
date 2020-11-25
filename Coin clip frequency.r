@@ -27,7 +27,7 @@ flip.Cnt <- function(h){
     {
       # get the value of f for next comparison
       f = h[i] 
-      #c ount changes
+      #count changes
       cnt = 1 + cnt
     }
     # counter
