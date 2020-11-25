@@ -17,7 +17,7 @@ dim(pricing)  # summary dimension of data,(rows, columns)
 summary(pricing) # quick view of how the data looks, according to mean, median, min and max
 
 
-# sTEP 2 . Data cleaning
+# STEP 2 . Data cleaning
 
 # Display structure of data
 str(pricing)
