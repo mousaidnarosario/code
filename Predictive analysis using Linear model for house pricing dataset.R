@@ -94,11 +94,11 @@ plot(testing.Set$Price, lty = 2, col = 2, type="l", main="Predicted and testing 
 lines(predict.model, type="l",col=4) # plot overlap testing
 plot(predict.model, lty = 2, col = 4, type="l", main="Predicted model")
 
-# the plot shows that they frequency of testing and predicted model is almost the same, (predicted model covers test data well)
+# The plot illustrates that the frequency of testing and predicted model is almost the same (predicted model covers test data well)
 
 # STEP 6. Improve efficiency
 
-hist(testing.Set$Price-predict.model) # the  model and testing set shows normal distribution which is good.
+hist(testing.Set$Price-predict.model) # The model and testing set shows a fair normal distribution.
 
 plot(testing.Set$Price,predict.model, main="Predicted data vs testing data\n in LM model", col=c(2,3))
       # the model and testing set is linear 
@@ -113,7 +113,6 @@ rmse = sqrt(mse)
 rmse
 
 #or install caret for testing 
-
 #install.packages('caret')
 library(caret)
 
