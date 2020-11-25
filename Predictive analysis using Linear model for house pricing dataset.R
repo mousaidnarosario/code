@@ -65,7 +65,7 @@ nrow(training.Set)
 nrow(testing.Set)
 
 # STEP 4 Train the model 
-model <- lm(SalePrice ~ ., data = training.Set ) # dot shows multiple linear regression model
+model <- lm(SalePrice ~ ., data = training.Set )
 
 summary(model)
 
