@@ -50,7 +50,7 @@ str(house.pricing) # no data is removed because all variables have values.
 # STEP 3. Build the model
 
 set.seed(2)
-install.packages("caTools") # splitting data
+install.packages("caTools") # splitting and predicting data
 library(caTools)
 
 # Split data into training and testing set. Training is always bigger than testing set 
