@@ -17,7 +17,7 @@ dim(usa.pricing)  # summary dimension of data,(rows, columns)
 summary(usa.pricing) # quick view of how the data looks, according to mean, median, min and max
 
 
-# sTEP 2 . Data cleaning
+# STEP 2 . Data cleaning
 
 # Display structure of data
 str(usa.pricing)
