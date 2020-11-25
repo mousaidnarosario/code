@@ -2,7 +2,7 @@
 # Title: Explore linear regression model in predicting data
 # Problem Statement: Predict the USA house prices using Linear Regression
 # Author: "Mousaidna Rosario"
-# Dataset description : Dataset from studygyaan.com called usa housing prices dataset
+# Dataset description : Dataset from studygyaan.com called usa housing dataset
 # Predictive analytics methods:
 # Import data > Data cleaning > build a model > Train model > Test model > Improve efficiency
 ###
@@ -54,7 +54,7 @@ plot(Price ~ Avg.House.Age , data=uhp )
 
 uhp <- uhp[complete.cases(uhp),]
 
-str(uhp) # no data is removed because all variables have values. 
+str(uhp) # no removed data because there is no missing values. 
 
 # STEP 3. Build the model
 
@@ -67,17 +67,17 @@ n <- nrow(uhp)
 s <- n *0.8 # 80% : data from 1:s
 s1 <- s+1   # 20% : s+1 to the end of dataset
 
-training.Set <- uhp[1:s,1:6]
-testing.Set <- uhp[s1:n,1:6]
+training.Set <- uhp[1:s,1:6] # taking 80% of the data for all variables
+testing.Set <- uhp[s1:n,1:6] # taking 20% of the data for all variables
 
-nrow(training.Set)
-nrow(testing.Set)
+nrow(training.Set) #count training set
+nrow(testing.Set) #count testing set
 
-head(training.Set)
+head(training.Set) 
 head(testing.Set)
 
 # STEP 4 Train the model 
-model <- lm(Price ~ ., data = training.Set ) # dot shows multiple linear regression model
+model <- lm(Price ~ ., data = training.Set ) # dot compare prices among all variables to train on. (y dependent var ~x independent var)
 
 summary(model)
 
