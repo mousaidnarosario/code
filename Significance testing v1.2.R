@@ -51,7 +51,7 @@ head(housing)
 # count years in Yearbuilt
 
 # I observed that the data  in 2010 is incomplete with 6 months worth of data
-# Hence, it's not worth comparing it at this time, Otherwise, we can predict data for the next months
+# Hence, it's not worth comparing it at this time, we can predict data for the next months
 # However, this is not the scope of the data exploration; hence, we will eliminate data from 2010 in the dataset
 # Otherwise it will affect data analysis due to incomplete data
 
