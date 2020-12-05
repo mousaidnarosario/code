@@ -1,6 +1,6 @@
 ###
 # Title: Significance testing of data distribution for USA housing dataset using chi square test
-# Problem Statement: Is there any statistically significant differences in distribution of sales and houses 
+# Problem Statement: Is there any statistically significant differences in the distribution of sales and houses 
 #                    sold from 2006-2009 in the USA housing?
 # Author: "Mousaidna Rosario"
 # Dataset description : Dataset from Kaggle.com called Housing prices dataset employing sqldf library
