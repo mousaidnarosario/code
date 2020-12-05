@@ -1,8 +1,8 @@
 ###
 # Title: Significance testing of data distribution for USA housing dataset using chi square test
-# Problem Statement: Is there any statistically significant differences in the distribution of sales and houses 
+# Problem Statement: Is there any statistically significant differences in distribution of sales and houses 
 #                    sold from 2006-2009 in the USA housing?
-# Author: "Mousaidna Rosario"
+# Author: Mousaidna Rosario
 # Dataset description : Dataset from Kaggle.com called Housing prices dataset employing sqldf library
 # Import data > Data cleaning > Data Transformation > Data Visualization > Hypothesis testing > Results 
 ###
@@ -46,7 +46,6 @@ housing <- housing[order(-housing$YrSold),]
 
 head(housing)
 
-
 # STEP 3: Data Transformation
 
 # count years in Yearbuilt
@@ -76,36 +75,6 @@ CntSold <- sqldf("SELECT YrSold
                     ORDER BY YrSold ")
 CntSold
 
-# Step 4: Visualize the data
-
-barplot(CntSold$CountHouseSold, beside= T, 
-        names.arg = c(2006,2007,2008,2009)
-        , ylim=c(0,400)
-        , col=heat.colors(5)
-        ,main='Sold houses from 2006-2009'
-        ,xlab='Years'
-        ,ylab='Count')
-
-
-# STEP 5: Formulate a hypothesis 
-
-# Test to determine if a statistically significant difference in the distribution of houses sold from 2006-2009.
-
-#h0 :  No differences in the distribution of houses sold from 2006-2009
-#ha :  Significant differences in  distribution of data from 2006-2009
-
-# Step 6: Test the hypothesis
-
-chisq.test(CntSold,rescale.p=TRUE)
-
-chisq.test(CntSold,rescale.p=TRUE, simulate.p.value = TRUE,B = 1000)
-
-# Step 7 : Result declaration
-
-# The result of the test shows that the the p-val is 0.6076, higher than the significant
-# value of 0.05, which means we do not reject the null. Therefore, there we accept the null that
-# there is no difference in the distribution of houses sold from 2006-2009
-
 # Sales per year
 
 # statistical summary of sales from 2006-2009
@@ -121,6 +90,8 @@ YearSales <- sqldf("SELECT YrSold
 
 YearSales
 
+	   
+# Step 4. Data Visualization
 
 # plot sales
 barplot(YearSales$TotalSales,beside= T,
@@ -129,12 +100,9 @@ barplot(YearSales$TotalSales,beside= T,
         ,main= 'Total sales from 2006-2010'
         ,xlab='Years'
         ,ylab='Sales')
-
-
-
-# total sales per year
-
-
+		
+		
+# total sales per year via boxplot
 yr2006 <- subset(housing$SalePrice, housing$YrSold==2006)
 yr2007 <- subset(housing$SalePrice, housing$YrSold==2007)
 yr2008 <- subset(housing$SalePrice, housing$YrSold==2008)
@@ -147,6 +115,8 @@ boxplot(cbind(yr2006,yr2007,yr2008,yr2009)
 abline(h=mean(housing$SalePrice),col = 'blue',
        lwd = 2, lty = 2)
 
+
+# Step 5 & 6. Hypothesis testing and Results
 
 # Test to determine if a statistically significant difference in the distribution of sales exists from 2006 and 2009
 
@@ -161,3 +131,16 @@ chisq.test(YearSales,rescale.p=TRUE, simulate.p.value = TRUE,B = 1000)
 # The result of the testing shows that the the p-val is 0.0001213, lower than the significant
 # value of 0.05, which means we do reject the null. Therefore, there we accept the null that
 # there is a statistical significant difference in the distribution of houses sales from 2006-2009
+
+# Test to determine if a statistically significant difference in the distribution of houses sold from 2006-2009.
+
+#h0 :  No differences in the distribution of houses sold from 2006-2009
+#ha :  Significant differences in  distribution of data from 2006-2009
+
+chisq.test(CntSold,rescale.p=TRUE)
+
+chisq.test(CntSold,rescale.p=TRUE, simulate.p.value = TRUE,B = 1000)
+
+# The result of the test shows that the the p-val is 0.6076, higher than the significant
+# value of 0.05, which means we do not reject the null. Therefore, there we accept the null that
+# there is no difference in the distribution of houses sold from 2006-2009
